@@ -1,0 +1,5 @@
+[user]
+  name = Eliot Jordan
+  email = eliotj@princeton.edu
+[commit]
+  template = ~/.gitmessage.local

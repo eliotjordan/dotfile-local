@@ -1,0 +1,48 @@
+" Map NERDTree to Ctrl-Space
+" nnoremap <C-@> :NERDTree<CR>
+" nnoremap <C-@> :NERDTreeToggle<CR>
+nnoremap <C-Space> :NERDTreeToggle<CR>
+
+" Automatically delete the buffer of the file just deleted with NerdTree
+let NERDTreeAutoDeleteBuffer = 1
+
+" Make NERDTree Prettier
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+" NERDTree show hidden files
+let NERDTreeShowHidden=1
+
+" CtrlP Show hidden files
+let g:ctrlp_show_hidden = 1
+
+" CtrlP Ignore certain directories
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tmp\|coverage'
+
+" Ignore directories in vimgrep
+:set wildignore+=node_modules/**,DS_Store/**,coverage/**,tmp/**,log/**
+
+" Turn off text length column
+:set colorcolumn=0
+
+" Set line numbers to grey
+highlight LineNr ctermfg=grey
+
+" Turn off automatic spell check
+autocmd BufRead,BufNewFile *.md setlocal nospell
+
+nnoremap <Leader>rc :ALEFix<CR>
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let g:ale_linters = {'vue': ['eslint', 'vls']}
+let g:ale_fixers = {
+\   'ruby': ['rubocop'],
+\   'elixir': ['mix_format'],
+\   'javascript': ['eslint'],
+\   'vue': ['eslint']
+\}
+let g:ale_set_highlights = 0
+
+" Pretty Print JSON, HTML, XML
+command! PrettyPrintJSON %!python -m json.tool
+command! PrettyPrintHTML !tidy -mi -html -wrap 0 %
+command! PrettyPrintXML !tidy -mi -xml -wrap 0 %

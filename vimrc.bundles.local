@@ -1,0 +1,4 @@
+Plug 'tpope/vim-sensible'
+Plug 'scrooloose/nerdtree'
+Plug 'elzr/vim-json'
+Plug 'webdevel/tabulous'
