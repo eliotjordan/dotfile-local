@@ -1,4 +1,7 @@
 export PATH="$PATH:/usr/local/opt/node@12/bin:$PATH"
 
+. $(brew --prefix asdf)/asdf.sh
+export PATH=".git/safe/../../.bundle/bin:/Users/tpendragon/.asdf/shims:$PATH"
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

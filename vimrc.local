@@ -1,8 +1,3 @@
-" Map NERDTree to Ctrl-Space
-" nnoremap <C-@> :NERDTree<CR>
-" nnoremap <C-@> :NERDTreeToggle<CR>
-nnoremap <C-Space> :NERDTreeToggle<CR>
-
 " Automatically delete the buffer of the file just deleted with NerdTree
 let NERDTreeAutoDeleteBuffer = 1
 
@@ -12,6 +7,11 @@ let NERDTreeDirArrows = 1
 
 " NERDTree show hidden files
 let NERDTreeShowHidden=1
+
+" Map NERDTree to Ctrl-Space. Disabled, for now. Use Leader+e
+" nnoremap <C-@> :NERDTree<CR>
+" nnoremap <C-@> :NERDTreeToggle<CR>
+" nnoremap <C-Space> :NERDTreeToggle<CR>
 
 " CtrlP Show hidden files
 let g:ctrlp_show_hidden = 1
@@ -31,7 +31,36 @@ highlight LineNr ctermfg=grey
 " Turn off automatic spell check
 autocmd BufRead,BufNewFile *.md setlocal nospell
 
+nnoremap <Leader>b :call Send_to_Tmux("bundle install\n")<CR>
+nnoremap <Leader>m :call Send_to_Tmux("migrate\n")<CR>
+nnoremap <Leader>sv :AV<CR>
+nnoremap <leader>q :q<CR>
+" nnoremap <leader>e :Explore<CR>
+nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>at :AT<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>to :tabonly<CR>
+nnoremap <leader>wq :wq<CR>
+nnoremap <leader>gri :Git rebase -i master<CR>
+nnoremap <leader>ln :set rnu!<CR>
+set clipboard=unnamed
+let g:tslime_always_current_session = 1
+set statusline=%{fugitive#statusline()}\ %f
+let g:markdown_enable_mappings = 0
+let test#strategy = "tslime"
+let g:test#preserve_screen = 1
+
+nnoremap <Leader>me :MarkdownEditBlock<CR>
+vnoremap <Leader>me :MarkdownEditBlock<CR>
 nnoremap <Leader>rc :ALEFix<CR>
+augroup ft_rb
+    au!
+    " fix the SLOOOW syntax highlighting
+    au FileType ruby setlocal re=1 foldmethod=manual
+augroup END
+set re=1
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters = {'vue': ['eslint', 'vls']}
 let g:ale_fixers = {
