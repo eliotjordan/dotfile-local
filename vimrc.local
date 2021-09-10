@@ -39,7 +39,7 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>at :AT<CR>
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>to :tabonly<CR>
 nnoremap <leader>wq :wq<CR>
@@ -52,7 +52,7 @@ let g:markdown_enable_mappings = 0
 let test#strategy = "tslime"
 let g:test#preserve_screen = 1
 
-nnoremap <Leader>me :MarkdownEditBlock<CR>
+nnoremap <Leader>mt :MarkdownPreviewToggle<CR>
 vnoremap <Leader>me :MarkdownEditBlock<CR>
 nnoremap <Leader>rc :ALEFix<CR>
 augroup ft_rb
