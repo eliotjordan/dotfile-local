@@ -10,3 +10,5 @@ Plug 'slashmili/alchemist.vim'
 Plug 'gabrielelana/vim-markdown'
 Plug 'thiagoalmeidasa/vim-ansible-vault'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'

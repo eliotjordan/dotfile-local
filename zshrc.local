@@ -1,4 +1,16 @@
-export PATH="$PATH:/usr/local/opt/node@12/bin:$PATH"
+# export PATH="$PATH:/usr/local/opt/node@12/bin:$PATH"
 export PATH="/Users/eliotj/.asdf/shims:$PATH"
+DISABLE_MAGIC_FUNCTIONS=true
 
-. $(brew --prefix asdf)/asdf.sh
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/eliotj/Documents/Temp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/eliotj/Documents/Temp/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/eliotj/Documents/Temp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/eliotj/Documents/Temp/google-cloud-sdk/completion.zsh.inc'; fi
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# Fix issue with homebrew postgres and rails applications (Figgy in particular).
+# Can remove if/when it is resolved.
+# See: https://github.com/ged/ruby-pg/issues/538
+export PGGSSENCMODE="disable"
