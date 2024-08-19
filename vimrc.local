@@ -76,19 +76,21 @@ command! PrettyPrintJSON %!python -m json.tool
 command! PrettyPrintHTML !tidy -mi -html -wrap 0 %
 command! PrettyPrintXML !tidy -mi -xml -wrap 0 %
 
-" Run Hyrax specs in the container.
-function! HyraxRspec(cmd) abort
-  call system("cat README.md | grep 'Hyrax'")
-  if v:shell_error == 0
-    return substitute(a:cmd, 'bundle exec \(.*\)', 'docker-compose exec -w /app/samvera/hyrax-engine app sh -c "bundle exec \1"', '')
-  else
-    return a:cmd
+let g:ale_virtualtext_cursor = 'disabled'
+
+" Elixir debugger support
+function! DebugMix(cmd) abort
+  if filereadable('mix.exs')
+    return 'iex --dbg pry -S '.a:cmd.' --trace'
   endif
 endfunction
+
 let g:test#custom_transformations = {
-      \ 'hyrax_ruby': function('HyraxRspec')
+      \ 'iex_mix': function('DebugMix')
       \ }
-let g:test#transformation = 'hyrax_ruby'
+
+# Turn on when testing elixir
+" let g:test#transformation = 'iex_mix'
 
 " https://www.chunkhang.com/blog/slow-syntax-highlighting-in-vim
 set re=0
